@@ -43,8 +43,6 @@ const Contact = () => {
               className="font-roboto text-base bg-[transparent] self-stretch rounded flex flex-col py-4 px-3 items-start justify-start border-[1px] border-solid border-gray"
               type="email"
               placeholder="Email id"
-              maxLength
-              minLength
               required
             />
             <textarea
