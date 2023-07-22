@@ -1,32 +1,15 @@
 import "antd/dist/antd.min.css";
-import { Menu, Dropdown, Button } from "antd";
-import {
-  DownOutlined,
-  ArrowLeftOutlined,
-  ArrowRightOutlined,
-  CalendarOutlined,
-  CheckOutlined,
-  ClockCircleOutlined,
-  CloseOutlined,
-  DeleteOutlined,
-  EditOutlined,
-  ExclamationCircleOutlined,
-  HeartOutlined,
-  LeftOutlined,
-  LockOutlined,
-  MailOutlined,
-  PaperClipOutlined,
-  PhoneOutlined,
-  QuestionCircleOutlined,
-  ReloadOutlined,
-  RightOutlined,
-  SearchOutlined,
-  SendOutlined,
-  ShareAltOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { Menu, Dropdown } from "antd";
+import { DownOutlined } from "@ant-design/icons";
+import { useRouter } from "next/router";
 
 const Hero = () => {
+  const router = useRouter();
+
+  const onSearchCTAClick = () => {
+    router.push("/properties");
+  };
+
   return (
     <div className="self-stretch flex flex-col py-[120px] px-[30px] items-center justify-start bg-[url(/hero-section@3x.png)] bg-cover bg-no-repeat bg-[top] text-center text-33xl text-gray-white font-body-regular-400">
       <div className="self-stretch flex flex-col items-center justify-center gap-[62px] max-w-[95%px]">
@@ -42,7 +25,10 @@ const Hero = () => {
         </div>
         <div className="self-stretch flex flex-col items-center justify-start gap-[17px] text-left text-base text-primary-700 font-body-regular-600">
           <div className="flex flex-row items-start justify-start gap-[10px]">
-            <button className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded overflow-hidden flex flex-row items-start justify-start">
+            <button
+              onClick={onSearchCTAClick}
+              className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded overflow-hidden flex flex-row items-start justify-start"
+            >
               <div className="relative text-base leading-[24px] font-medium font-body-regular-600 text-gray-white text-center">
                 Rent
               </div>
@@ -74,10 +60,10 @@ const Hero = () => {
                   placement="bottomLeft"
                   trigger={["hover"]}
                 >
-                  <Button onClick={(e) => e.preventDefault()}>
+                  <a onClick={(e) => e.preventDefault()}>
                     {`Select your city `}
                     <DownOutlined />
-                  </Button>
+                  </a>
                 </Dropdown>
               </div>
               <div className="w-[177px] flex flex-col items-start justify-start gap-[16px]">
@@ -126,10 +112,10 @@ const Hero = () => {
                   placement="bottomLeft"
                   trigger={["hover"]}
                 >
-                  <Button onClick={(e) => e.preventDefault()}>
+                  <a onClick={(e) => e.preventDefault()}>
                     {`Select rent range `}
                     <DownOutlined />
-                  </Button>
+                  </a>
                 </Dropdown>
               </div>
               <button className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded w-[102px] flex flex-row box-border items-center justify-center hover:bg-steelblue">
